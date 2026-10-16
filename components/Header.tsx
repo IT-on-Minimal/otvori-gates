@@ -1,0 +1,6 @@
+'use client';
+import {sitePath} from '@/lib/sitePath';
+import {useState} from 'react';
+import {company} from '@/data/site';
+export function Brand(){return <a href={sitePath('/')} className="brand" aria-label="ОТВОРИ — главная"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27V5h26v22M10 6v21M16 6v21M22 6v21" fill="none" stroke="currentColor" strokeWidth="2"/></svg>{company.name}<span className="brand-period">.</span></a>}
+export default function Header(){const[open,setOpen]=useState(false);return <header className="site-header"><div className="header-inner"><Brand/><nav aria-label="Основная навигация" className={open?'nav is-open':'nav'}>{[['Ворота и ограждения','/#solutions'],['Подбор ворот','/#configurator'],['Как заказать','/#process'],['Контакты','/contacts'],['Обсудить заказ','/#request']].map(([n,h])=><a href={sitePath(h)} key={n} onClick={()=>setOpen(false)}>{n}</a>)}</nav><div className="header-actions">{company.phone?<a href={'tel:'+company.phone}>{company.phone}</a>:<span className="header-region">Москва и область</span>}<a className="button small" href={sitePath('/#request')}>Обсудить заказ</a><button className="menu-toggle" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label={open?'Закрыть меню':'Открыть меню'}>{open?'✕':'☰'}</button></div></div></header>}

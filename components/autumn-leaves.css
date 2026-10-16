@@ -1,0 +1,18 @@
+/* Self-running maple leaves behind content; toggle in AutumnLeaves.tsx. */
+.album-site .album-hero,.album-site .album-solutions{position:relative;isolation:isolate;overflow:hidden}
+.album-site .album-hero>.hero-copy,.album-site .album-hero>.hero-media,.album-site .album-solutions>.container{position:relative;z-index:1}
+.autumn-leaves{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;contain:layout style;user-select:none}
+.autumn-leaf{position:absolute;top:-55px;display:block;opacity:.28;transform-origin:50% 40%;filter:drop-shadow(0 2px 2px #5a351517);animation:maple-fall var(--duration) linear var(--delay) infinite;will-change:transform}
+.autumn-leaf.tone-amber{color:#c88635}
+.autumn-leaf.tone-copper{color:#ae6039}
+.autumn-leaf.tone-gold{color:#dab459}
+@keyframes maple-fall{
+ 0%{transform:translate3d(0,-35px,0) rotate(-30deg) rotateY(0deg);opacity:0}
+ 8%{opacity:.29}
+ 38%{transform:translate3d(calc(var(--drift) * -.25),370px,0) rotate(50deg) rotateY(140deg)}
+ 72%{transform:translate3d(calc(var(--drift) * .7),760px,0) rotate(calc(var(--turn) * .65)) rotateY(290deg)}
+ 92%{opacity:.26}
+ 100%{transform:translate3d(var(--drift),1200px,0) rotate(var(--turn)) rotateY(390deg);opacity:0}
+}
+@media(max-width:800px){.autumn-leaf:nth-child(n+6){display:none}.autumn-leaf{opacity:.2}}
+@media(prefers-reduced-motion:reduce){.autumn-leaf{animation:none;will-change:auto;opacity:.16;top:35%;transform:rotate(-25deg)}.autumn-leaf:nth-child(n+4){display:none}}

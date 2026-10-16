@@ -1,0 +1,1 @@
+import type{Metadata}from'next';import LegalPage from'@/components/LegalPage';export const metadata:Metadata={title:'Политика конфиденциальности — проект',description:'Проект политики: данные и фотографии в демонстрационной версии не отправляются.',robots:{index:false,follow:true},alternates:{canonical:'/privacy'}};export default function Page(){return <LegalPage/>}

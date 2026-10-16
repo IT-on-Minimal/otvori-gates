@@ -1,0 +1,2 @@
+import {siteOrigin} from '@/lib/sitePath';
+import type{MetadataRoute}from'next';import{services,projects}from'@/data/site';const origin=siteOrigin;export default function sitemap():MetadataRoute.Sitemap{return ['','/projects','/contacts',...services.filter(s=>s.status==='available').map(s=>'/'+s.slug),...projects.map(p=>'/projects/'+p.slug)].map(path=>({url:origin+path,changeFrequency:'monthly',priority:path===''?1:.7}))}

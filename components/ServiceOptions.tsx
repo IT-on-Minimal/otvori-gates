@@ -1,0 +1,4 @@
+'use client';
+import {sitePath} from '@/lib/sitePath';
+import {useState} from 'react';import {Check,Palette} from 'lucide-react';import AlbumNote from './AlbumNote';
+export default function ServiceOptions({options}:{options:string[]}){const [selected,setSelected]=useState(0);return <div className="service-option-album"><h3>Что ближе вашему участку?</h3><div>{options.map((o,i)=><button key={o} className={'album-choice '+(i===selected?'selected':'')} onClick={()=>setSelected(i)} aria-pressed={i===selected}><Palette size={22}/><strong>{o}</strong>{i===selected&&<Check size={17}/>}</button>)}</div><AlbumNote title="Отправная точка" className="service-selection"><span aria-live="polite">{options[selected]}</span><p>Обсудим совместимость и детали на консультации.</p></AlbumNote><a className="button" href={sitePath('/#configurator')}>Собрать свои ворота</a></div>}
